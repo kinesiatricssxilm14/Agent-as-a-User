@@ -1,0 +1,3 @@
+# Example script agent actions (JSONL, one action per line)
+# Usage: keyboard-agent run --agent script --script examples/demo_submit.jsonl --current-only
+{"action": "submit"}

@@ -1,0 +1,27 @@
+# DeepSeek official API — LLM agent for curated-study-kit
+# Key: export DEEPSEEK_API_KEY=...  (or source repo root ../.env)
+#
+# Example:
+#   source .env
+#   set -a && source ../.env && set +a   # optional: load DEEPSEEK_API_KEY
+#   ./run-agent-cn.sh --limit 20 --rebuild
+
+output_dir: runs
+max_turns: 100
+# Do not abort after 3 LLM/parse errors — keep trying until max_turns.
+max_consecutive_agent_errors: 100
+observation_mode: semantic
+rebuild: false
+
+agent: openai
+
+llm:
+  provider: openai
+  model: deepseek-v4-flash
+  # model: deepseek-reasoner
+  # api_key left empty → DEEPSEEK_API_KEY / OPENAI_API_KEY from env
+  base_url: https://api.deepseek.com
+  temperature: 0.2
+  max_tokens: 4096
+  thinking: enabled
+  reasoning_effort: high

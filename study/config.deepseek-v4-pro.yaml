@@ -1,0 +1,22 @@
+# DeepSeek-V4-Pro — same harness settings as Flash suite, max_turns hard-capped at 100.
+# Key: DEEPSEEK_API_KEY from curated-study-kit/.env or repo root .env
+#
+#   ./run-agent-en.sh -c config.deepseek-v4-pro.yaml --max-turns 100
+
+output_dir: runs
+max_turns: 100
+# Same budget as Flash: do not abort after 3 LLM/parse errors.
+max_consecutive_agent_errors: 100
+observation_mode: semantic
+rebuild: false
+
+agent: openai
+
+llm:
+  provider: openai
+  model: deepseek-v4-pro
+  base_url: https://api.deepseek.com
+  temperature: 0.2
+  max_tokens: 4096
+  thinking: enabled
+  reasoning_effort: high

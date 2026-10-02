@@ -1,0 +1,34 @@
+[package]
+name = "toolk"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+description = "toolk - an interactive CSV data analysis TUI (fuzzy / SQL-Like / SQL query modes)"
+license = "MIT"
+default-run = "toolk"
+
+[[bin]]
+name = "toolk"
+path = "src/main.rs"
+
+[dependencies]
+crossterm = "0.29"
+ratatui = "0.30"
+polars = { version = "0.55", default-features = false, features = [
+    "csv",
+    "lazy",
+    "sql",
+    "strings",
+    "dtype-i8",
+    "dtype-i16",
+    "dtype-u8",
+    "dtype-u16",
+    "dtype-date",
+    "dtype-datetime",
+    "temporal",
+    "fmt",
+] }
+
+[profile.release]
+opt-level = 2
+debug = false

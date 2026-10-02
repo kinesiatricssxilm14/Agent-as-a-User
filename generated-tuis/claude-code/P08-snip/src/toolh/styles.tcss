@@ -1,0 +1,196 @@
+/* toolh - single-screen layout.
+ *
+ * The guiding rule: the snippet list, the search box, every field of the
+ * selected snippet, the status line and the key hints are all on screen at the
+ * same time.  Nothing important lives behind a tab or a modal.
+ */
+
+Screen {
+    layout: vertical;
+    background: $surface;
+}
+
+/* -- search row ------------------------------------------------------- */
+#search-row {
+    height: 3;
+    padding: 0 1;
+    background: $panel;
+}
+
+#search {
+    width: 1fr;
+    border: round $primary;
+    background: $surface;
+}
+
+#search:focus {
+    border: round $accent;
+}
+
+#sort-indicator {
+    width: auto;
+    min-width: 24;
+    padding: 1 1 0 2;
+    color: $text-muted;
+    content-align: right middle;
+}
+
+/* -- main body -------------------------------------------------------- */
+#main {
+    height: 1fr;
+}
+
+#list-pane {
+    width: 2fr;
+    min-width: 28;
+    border: round $primary;
+    border-title-color: $accent;
+    border-title-style: bold;
+}
+
+#list-pane:focus-within {
+    border: round $accent;
+}
+
+#snippet-table {
+    height: 1fr;
+    background: $surface;
+}
+
+#right-pane {
+    width: 3fr;
+    min-width: 34;
+    border: round $primary;
+    border-title-color: $accent;
+    border-title-style: bold;
+}
+
+#right-pane:focus-within {
+    border: round $accent;
+}
+
+#detail-view, #edit-view {
+    height: 1fr;
+    padding: 0 1;
+    scrollbar-gutter: stable;
+}
+
+#detail-title {
+    padding: 0 0 1 0;
+}
+
+#detail-meta {
+    padding: 0 0 1 0;
+}
+
+.section-label {
+    color: $accent;
+    text-style: bold;
+}
+
+#detail-description {
+    padding: 0 0 1 1;
+}
+
+#detail-code {
+    padding: 0 0 1 1;
+}
+
+/* -- editor ----------------------------------------------------------- */
+#edit-heading {
+    padding: 0 0 1 0;
+}
+
+#edit-view Input {
+    border: round $primary;
+    background: $surface;
+    height: 3;
+}
+
+#edit-view Input:focus {
+    border: round $accent;
+}
+
+#edit-view TextArea {
+    border: round $primary;
+    background: $surface;
+}
+
+#edit-view TextArea:focus {
+    border: round $accent;
+}
+
+#f-description {
+    height: 5;
+}
+
+#f-code {
+    height: 1fr;
+    min-height: 5;
+}
+
+#edit-hint {
+    color: $text-muted;
+    padding: 1 0 0 0;
+}
+
+/* -- inline bars (never modal, detail stays visible above) ------------ */
+#rename-bar {
+    height: 3;
+    padding: 0 1;
+    background: $boost;
+    display: none;
+}
+
+#rename-bar.visible {
+    display: block;
+}
+
+#rename-label {
+    width: auto;
+    padding: 1 1 0 0;
+    color: $accent;
+    text-style: bold;
+}
+
+#f-rename {
+    width: 1fr;
+    border: round $accent;
+    background: $surface;
+}
+
+#confirm-bar {
+    height: auto;
+    min-height: 2;
+    padding: 0 1;
+    background: $error 20%;
+    color: $text;
+    display: none;
+}
+
+#confirm-bar.visible {
+    display: block;
+}
+
+#confirm-bar:focus {
+    background: $error 35%;
+}
+
+/* -- status line ------------------------------------------------------ */
+#status {
+    height: auto;
+    min-height: 2;
+    padding: 0 1;
+    background: $panel;
+    color: $text-muted;
+}
+
+/* -- help screen ------------------------------------------------------ */
+#help-body {
+    padding: 1 2;
+    height: 1fr;
+}
+
+#help-title {
+    padding: 0 0 1 0;
+}

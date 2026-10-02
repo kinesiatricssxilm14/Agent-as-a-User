@@ -1,0 +1,29 @@
+[package]
+name = "toole"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Interactive regular expression testing TUI: live matching, highlighting, offsets and replacement preview"
+license = "MIT"
+readme = "README.md"
+keywords = ["regex", "tui", "ratatui", "testing", "cli"]
+categories = ["command-line-utilities", "text-processing"]
+
+[[bin]]
+name = "toole"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.29.0"
+crossterm = "0.28.1"
+regex = "1"
+fancy-regex = "0.11"
+clap = { version = "4", features = ["derive"] }
+unicode-width = "0.2"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "unwind"
+strip = true

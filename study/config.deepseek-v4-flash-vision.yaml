@@ -1,0 +1,23 @@
+# DeepSeek-V4-Flash-Vision-Exp — PNG observation (image modality).
+# Same harness settings as Pro/Flash text evals; agent sees terminal screenshots.
+#
+#   ./run-agent-en.sh -c config.deepseek-v4-flash-vision.yaml \
+#     --observation-mode png --max-turns 100
+
+output_dir: runs
+max_turns: 100
+max_consecutive_agent_errors: 100
+observation_mode: png
+rebuild: false
+
+agent: openai
+
+llm:
+  provider: openai
+  model: deepseek-v4-flash-vision-exp
+  base_url: https://api.deepseek.com
+  temperature: 0.2
+  max_tokens: 4096
+  request_timeout: 180
+  thinking: enabled
+  reasoning_effort: high

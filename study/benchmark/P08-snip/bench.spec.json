@@ -1,0 +1,31 @@
+{
+  "project_id": "P08",
+  "slug": "snip",
+  "repo": "phlx0/snip",
+  "lang": "python",
+  "description": "Code snippet management TUI with create/edit/delete snippets",
+  "docker_image": "bench-tui-p08-snip",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Create snippet: title git-log-pretty, language bash, description pretty git log-{{file_content}}, tags git, code git log --oneline --graph, save. Search git-log-pretty and view details showing at least title, language, description, tags, code.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "create"
+    },
+    {
+      "id": "T02",
+      "description": "Create snippet: title git-log-pretty, language bash, description pretty git log-{{file_content}}, tags git, code git log --oneline --graph, save. Create snippet: title batch-install-dependency, language python, description download and install all dependencies-{{file_content}}, tags environment, code pip install -r requirements.txt, save. Rename git-log-pretty to batch-install-python, save, search batch-install-python and view details showing at least title, language, description, tags, code.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T03",
+      "description": "Create snippet: title git-log-pretty, language bash, description pretty git log-{{file_content}}, tags git, code git log --oneline --graph, save. Then delete the git-log-pretty snippet.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "delete"
+    }
+  ]
+}

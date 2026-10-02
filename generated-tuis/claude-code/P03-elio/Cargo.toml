@@ -1,0 +1,28 @@
+[package]
+name = "toolc"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Dual-pane file manager TUI for browsing, previewing, copying, moving, renaming and deleting files"
+license = "MIT"
+readme = "README.md"
+keywords = ["tui", "file-manager", "ratatui", "cli"]
+categories = ["command-line-utilities", "filesystem"]
+
+[lib]
+name = "toolc"
+path = "src/lib.rs"
+
+[[bin]]
+name = "toolc"
+path = "src/main.rs"
+
+[dependencies]
+# ratatui re-exports the exact crossterm version it was built against, so we
+# depend on the backend through `ratatui::crossterm` and avoid version skew.
+ratatui = "0.29"
+unicode-width = "0.2"
+
+[profile.release]
+opt-level = 2
+strip = true

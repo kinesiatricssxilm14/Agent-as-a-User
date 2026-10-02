@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-tui"
+version = "0.1.0"
+description = "A CLI tool for LLM Agents to interact with TUI applications via Tmux"
+readme = "README.md"
+authors = [
+    {name = "Anonymous Artifact Authors", email = "anonymous@example.invalid"}
+]
+requires-python = ">=3.8"
+dependencies = [
+    "click",
+    "ansi2html",
+    "imgkit",
+    "rich"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]
+
+[project.scripts]
+agent-tui = "agent_tui.cli:cli"

@@ -1,0 +1,124 @@
+{
+  "input_root": "/path/to/anonymous-artifact",
+  "output_root": "/path/to/anonymous-artifact",
+  "runs_root": "/path/to/anonymous-artifact",
+  "artifact_glob": "tool*",
+  "timeout_seconds": 7200,
+  "agents": {
+    "claude-code": {
+      "command": [
+        "/path/to/anonymous-artifact",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "bypassPermissions",
+        "--disallowedTools",
+        "WebSearch,WebFetch,Bash(git clone *),Bash(gh repo clone *),Bash(curl *),Bash(wget *)",
+        "--dangerously-skip-permissions",
+        "-p",
+        "{prompt_text}"
+      ],
+      "cwd": "{workspace_dir}",
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://api.chatanywhere.tech",
+        "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+        "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
+      }
+    },
+    "claude-code-code": {
+      "command": [
+        "/path/to/anonymous-artifact",
+        "--",
+        "--model",
+        "{model_cli_name}",
+        "--disable-slash-commands",
+        "--permission-mode",
+        "bypassPermissions",
+        "--disallowedTools",
+        "WebSearch,WebFetch,Bash(git clone *),Bash(gh repo clone *),Bash(curl *),Bash(wget *)",
+        "--dangerously-skip-permissions",
+        "-p"
+      ],
+      "cwd": "{workspace_dir}",
+      "stdin": "{prompt_text}",
+      "use_model_env": false,
+      "env": {
+        "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+        "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
+      }
+    },
+    "openhands": {
+      "command": [
+        "/path/to/anonymous-artifact",
+        "--headless",
+        "--json",
+        "--always-approve",
+        "--override-with-envs",
+        "-f",
+        "{prompt_file}"
+      ],
+      "cwd": "{workspace_dir}",
+      "env": {
+        "OPENHANDS_SUPPRESS_BANNER": "1"
+      }
+    }
+  },
+  "models": {
+    "deepseek-v4-pro": {
+      "model_cli_name": "deepseek-v4-pro",
+      "agent_model_cli_name": {
+        "claude-code": "sonnet",
+        "openhands": "deepseek/deepseek-v4-pro"
+      },
+      "env": {
+        "OPENAI_API_KEY": "${DEEPSEEK_API_KEY}",
+        "OPENAI_BASE_URL": "${DEEPSEEK_BASE_URL}",
+        "LLM_API_KEY": "${DEEPSEEK_API_KEY}",
+        "LLM_BASE_URL": "${DEEPSEEK_BASE_URL}",
+        "LLM_MODEL": "{model_cli_name}",
+        "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "${DEEPSEEK_API_KEY}",
+        "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-pro[1m]",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro[1m]",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-flash",
+        "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek-v4-flash",
+        "CLAUDE_CODE_EFFORT_LEVEL": "max"
+      }
+    },
+    "claude-sonnet-4-6": {
+      "model_cli_name": "claude-sonnet-4-6",
+      "agent_model_cli_name": {
+        "claude-code": "sonnet",
+        "claude-code-code": "claude-sonnet-4-6",
+        "openhands": "openai/claude-sonnet-4-6"
+      },
+      "env": {
+        "OPENAI_API_KEY": "${CHATANYWHERE_API_KEY}",
+        "OPENAI_BASE_URL": "${CHATANYWHERE_BASE_URL}",
+        "LLM_API_KEY": "${CHATANYWHERE_API_KEY}",
+        "LLM_BASE_URL": "${CHATANYWHERE_BASE_URL}",
+        "LLM_MODEL": "{model_cli_name}",
+        "ANTHROPIC_AUTH_TOKEN": "${CHATANYWHERE_API_KEY}",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "{model}",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "{model}",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "{model}",
+        "ANTHROPIC_REASONING_MODEL": "{model}",
+        "ANTHROPIC_MODEL": "{model}"
+      }
+    },
+    "anthropic-claude-sonnet-4-6": {
+      "model_cli_name": "claude-sonnet-4-6",
+      "agent_model_cli_name": {
+        "claude-code": "sonnet",
+        "openhands": "anthropic/claude-sonnet-4-6"
+      },
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+        "LLM_API_KEY": "${ANTHROPIC_API_KEY}",
+        "LLM_MODEL": "{model_cli_name}"
+      }
+    }
+  }
+}

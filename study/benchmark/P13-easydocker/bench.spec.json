@@ -1,0 +1,66 @@
+{
+  "project_id": "P13",
+  "slug": "easydocker",
+  "repo": "joao-zanutto/easydocker",
+  "lang": "go",
+  "description": "Docker container management TUI (Mock Docker API mode, no mount required)",
+  "docker_image": "bench-tui-p13-easydocker",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Display all Docker containers list including running and stopped, showing at least full container name and image name.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "View complete log output for Docker container bench-mysql, display full content.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T03",
+      "description": "View all Docker images list, showing at least each image's name, tags, size (in MB), and Image ID.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "View all Docker networks list, showing at least each network's name and driver.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T05",
+      "description": "View all Docker volumes list, showing at least each volume's name and driver.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T06",
+      "description": "View Docker container bench-mysql details, showing at least name, image (with tags), ports, Command, and ID.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T07",
+      "description": "View Docker volume bench-data details, showing at least name, driver, and mountpoint (absolute path).",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T08",
+      "description": "View Docker image redis details, showing at least name, tags, size (in MB), and Image ID.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    }
+  ]
+}

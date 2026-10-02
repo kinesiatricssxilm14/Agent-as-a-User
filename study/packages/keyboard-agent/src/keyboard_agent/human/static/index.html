@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human TUI Bench</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 12px 20px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 { margin: 0; font-size: 16px; font-weight: 600; }
+    .meta { font-size: 13px; color: #8b949e; }
+    .desc {
+      padding: 12px 20px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      gap: 12px;
+    }
+    #screen-wrap {
+      width: min(100%, 1400px);
+      background: #010409;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: auto;
+      min-height: 400px;
+    }
+    #screen {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    button {
+      background: #238636;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover { background: #2ea043; }
+    button.secondary {
+      background: #21262d;
+      border: 1px solid #30363d;
+    }
+    button.secondary:hover { background: #30363d; }
+    #status { font-size: 13px; color: #8b949e; }
+    #startup-banner {
+      margin: 0;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border-bottom: 1px solid #30363d;
+      background: #1c2128;
+    }
+    #startup-banner.waiting { color: #f0883e; }
+    #startup-banner.ready { color: #3fb950; background: #122117; border-color: #238636; }
+    #startup-banner.submitted { color: #8b949e; }
+    #screen-wrap.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    #focus-hint {
+      padding: 8px 12px;
+      background: #1f6feb22;
+      border: 1px solid #1f6feb55;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #79c0ff;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Human TUI Bench</h1>
+    <span class="meta" id="task-id"></span>
+    <span class="meta" id="turn-count"></span>
+  </header>
+  <div class="desc" id="description">Loading task…</div>
+  <p id="startup-banner" class="waiting">⏳ English-only text…</p>
+  <main>
+    <div id="focus-hint" class="hidden">Click the terminal area below, then type. Mouse is disabled.</div>
+    <div id="screen-wrap" class="disabled" tabindex="0">
+      <img id="screen" alt="TUI screen" />
+    </div>
+    <div class="toolbar">
+      <button id="submit-btn">Submit task</button>
+      <button class="secondary" id="refresh-btn">Refresh screen</button>
+      <span id="status">Connecting…</span>
+    </div>
+  </main>
+  <script>
+    const screenEl = document.getElementById("screen");
+    const statusEl = document.getElementById("status");
+    const bannerEl = document.getElementById("startup-banner");
+    const focusHintEl = document.getElementById("focus-hint");
+    const wrapEl = document.getElementById("screen-wrap");
+    let submitKey = "ctrl+g ctrl+g ctrl+g";
+    let submitted = false;
+    let interactive = false;
+
+    function applyStartupUi(data) {
+      const phase = data.phase || "connecting";
+      const message = data.message || "⏳ English-only text…";
+      bannerEl.textContent = message;
+      bannerEl.className = phase === "submitted" ? "submitted"
+        : (data.ready || data.active) ? "ready" : "waiting";
+      interactive = !!(data.active && !data.submitted);
+      wrapEl.classList.toggle("disabled", !interactive);
+      focusHintEl.classList.toggle("hidden", !interactive);
+      document.getElementById("submit-btn").disabled = !interactive;
+      if (interactive) wrapEl.focus();
+    }
+
+    async function refreshState() {
+      const res = await fetch("/api/state");
+      const data = await res.json();
+      document.getElementById("task-id").textContent = data.task_id || "";
+      document.getElementById("description").textContent = data.description || "English-only text…";
+      document.getElementById("turn-count").textContent =
+        data.turn_count != null ? `Turns: ${data.turn_count}` : "";
+      submitKey = (data.submit_key || "ctrl+g ctrl+g ctrl+g").toLowerCase();
+      submitted = !!data.submitted;
+      applyStartupUi(data);
+      statusEl.textContent = submitted
+        ? "Submitted — you can close this tab."
+        : interactive
+          ? `Active — press ${submitKey.toUpperCase()} or Submit to finish`
+          : messageFromPhase(data);
+    }
+
+    function messageFromPhase(data) {
+      if (data.ready && !data.active) return "Almost ready…";
+      return "Waiting for environment…";
+    }
+
+    async function refreshScreen() {
+      if (!interactive && !submitted) return;
+      screenEl.src = `/api/screen.svg?t=${Date.now()}`;
+    }
+
+    async function sendKey(event) {
+      if (!interactive || submitted) return;
+      event.preventDefault();
+      const payload = {
+        key: event.key,
+        code: event.code,
+        ctrlKey: event.ctrlKey,
+        altKey: event.altKey,
+        metaKey: event.metaKey,
+        shiftKey: event.shiftKey,
+      };
+      const res = await fetch("/api/key", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      submitted = !!data.submitted;
+      await refreshState();
+      await refreshScreen();
+    }
+
+    async function submitTask() {
+      if (!interactive || submitted) return;
+      await fetch("/api/submit", { method: "POST" });
+      submitted = true;
+      await refreshState();
+      statusEl.textContent = "Submitted — you can close this tab.";
+    }
+
+    wrapEl.addEventListener("keydown", sendKey);
+    document.getElementById("submit-btn").addEventListener("click", submitTask);
+    document.getElementById("refresh-btn").addEventListener("click", refreshScreen);
+    wrapEl.addEventListener("click", () => wrapEl.focus());
+
+    async function loop() {
+      try {
+        await refreshState();
+        await refreshScreen();
+      } catch (err) {
+        bannerEl.textContent = "❌ English-only text — English-only text？";
+        bannerEl.className = "waiting";
+        statusEl.textContent = "Connection error — is the server running?";
+      }
+      if (!submitted) setTimeout(loop, interactive ? 300 : 500);
+    }
+
+    loop();
+  </script>
+</body>
+</html>

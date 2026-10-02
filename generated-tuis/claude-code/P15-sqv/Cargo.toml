@@ -1,0 +1,25 @@
+[package]
+name = "toolo"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "toolo — an interactive SQLite database browser for the terminal"
+license = "MIT"
+readme = "README.md"
+
+[[bin]]
+name = "toolo"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0"
+crossterm = "0.28"
+ratatui = "0.29"
+regex = "1"
+rusqlite = { version = "0.32", features = ["bundled", "functions"] }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+opt-level = 2

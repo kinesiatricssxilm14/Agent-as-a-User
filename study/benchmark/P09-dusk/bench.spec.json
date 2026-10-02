@@ -1,0 +1,49 @@
+{
+  "project_id": "P09",
+  "slug": "dusk",
+  "repo": "lostf1sh/dusk",
+  "lang": "rust",
+  "description": "Disk space analysis TUI with treemap, sort, filter, and delete",
+  "docker_image": "bench-tui-p09-dusk",
+  "warm_pool": {
+    "max_slots": 1,
+    "single_concurrent_warm": true
+  },
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Display total size of all files under /bench/data in GB with at least two decimal places.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "View total size of all files under /bench/data/docs in MB with at least two decimal places.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T03",
+      "description": "Display info for the largest file under /bench/data, at least file name and size in GB.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Display file names of the three largest files under /bench/data/docs in the same view.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T05",
+      "description": "Display file count under /bench/data/images.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    }
+  ]
+}

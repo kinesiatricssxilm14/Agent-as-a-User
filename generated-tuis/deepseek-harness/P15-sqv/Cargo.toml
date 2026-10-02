@@ -1,0 +1,20 @@
+[package]
+name = "toolo"
+version = "0.1.0"
+edition = "2021"
+description = "A keyboard-driven SQLite database browser for the terminal"
+license = "MIT"
+
+[[bin]]
+name = "toolo"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.28"
+crossterm = "0.28"
+rusqlite = { version = "0.31", features = ["bundled"] }
+regex = "1"
+unicode-width = "0.1"
+
+[profile.release]
+opt-level = 3

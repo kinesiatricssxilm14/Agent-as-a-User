@@ -1,0 +1,4 @@
+col todo "TO DO"
+col in_progress "IN PROGRESS"
+col in_review "IN REVIEW"
+col done "DONE"

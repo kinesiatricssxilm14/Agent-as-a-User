@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tui-bench.local/schema/bench.spec.schema.json",
+  "title": "TUI-Bench bench.spec.json (machine-readable spec)",
+  "type": "object",
+  "properties": {
+    "project_id": { "type": "string" },
+    "slug": { "type": "string" },
+    "repo": { "type": "string" },
+    "lang": { "type": "string" },
+    "description": { "type": "string" },
+    "docker_image": {
+      "type": "string",
+      "description": "Docker image tag passed to docker run in session start"
+    },
+    "startup": {
+      "type": "object",
+      "description": "Optional TUI readiness wait after container start (bootstrap/init must finish first)",
+      "properties": {
+        "timeout_sec": { "type": "number", "minimum": 1, "default": 180 },
+        "stable_sec": { "type": "number", "minimum": 0.1, "default": 2 },
+        "poll_interval_sec": { "type": "number", "minimum": 0.1, "default": 0.5 },
+        "min_text_len": { "type": "integer", "minimum": 0, "default": 40 },
+        "ready_pattern": {
+          "type": "string",
+          "description": "Optional regex; screen must match before declaring READY"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tasks": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/task" }
+    }
+  },
+  "required": ["project_id", "slug", "docker_image", "tasks"],
+  "$defs": {
+    "task": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^T[0-9]{2}$" },
+        "description": {
+          "type": "string",
+          "description": "Agent-facing text; may use {{file_name}}, {{file_content}}, {{screen}}, {{answer}}"
+        },
+        "observation": {
+          "type": "string",
+          "enum": ["filesystem", "screen", "answer", "shell"],
+          "description": "Primary verification channel for harness metadata"
+        },
+        "difficulty": { "enum": ["easy", "medium", "hard"] },
+        "type": {
+          "type": "string",
+          "description": "Optional label: navigate | create | edit | delete"
+        }
+      },
+      "required": ["id", "description", "observation"]
+    }
+  }
+}

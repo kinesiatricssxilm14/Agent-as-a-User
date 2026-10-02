@@ -1,0 +1,52 @@
+{
+  "project_id": "P15",
+  "slug": "sqv",
+  "repo": "mendrik-private/sqv",
+  "lang": "rust",
+  "description": "SQLite table browser TUI with sort and filter",
+  "docker_image": "bench-tui-p15-sqv",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Open users table, display at least the first 5 rows completely including all attribute values.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Open users table, sort by age descending in users table, display the user with the largest age with complete information.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T03",
+      "description": "Open users table, open filter on email column in users table, use contains mode to filter users whose email includes frank45, display complete information for all matching users.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Open users table, filter email column in users table with regexp mode, condition ^uvasquez@, display complete information for the matching user.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T05",
+      "description": "Open projects table, filter status column in projects table with == mode, condition active, confirm only status active records appear and no other statuses, display count of filtered records.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T06",
+      "description": "Open users table, change name to Alicer and dept to {{FP_SCREEN}} for user with id 2 in users table, keep other fields unchanged, display complete information for this user.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    }
+  ]
+}

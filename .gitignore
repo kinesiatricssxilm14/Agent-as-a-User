@@ -1,0 +1,10 @@
+.env
+.DS_Store
+build-logs/
+docker-images/
+runs/
+**/__pycache__/
+**/*.py[cod]
+**/*.egg-info/
+.pytest_cache/
+.venv/

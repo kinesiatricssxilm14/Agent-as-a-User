@@ -1,0 +1,45 @@
+{
+  "project_id": "P12",
+  "slug": "tuxedo",
+  "repo": "webstonehq/tuxedo",
+  "lang": "rust",
+  "description": "todo.txt format task management TUI",
+  "docker_image": "bench-tui-p12-tuxedo",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Using /bench/data/todo.txt as the task file, display the current full task list.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "create"
+    },
+    {
+      "id": "T02",
+      "description": "Using /bench/data/todo.txt as the task file, add new task: (A) {{file_content}} +deploy @work due:2029-12-12.",
+      "observation": "filesystem",
+      "difficulty": "easy",
+      "type": "create"
+    },
+    {
+      "id": "T03",
+      "description": "Using /bench/data/todo.txt as the task file, upgrade Fix CI pipeline task priority to A, display the complete task list.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T04",
+      "description": "Using /bench/data/todo.txt as the task file, mark Review pull requests as complete so it no longer appears on screen, and display the complete task list.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "edit"
+    },
+    {
+      "id": "T05",
+      "description": "Using /bench/data/todo.txt as the task file, add tag @{{screen}} after @computer on the Review pull requests task, with tags separated by spaces, and display the complete task list.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    }
+  ]
+}

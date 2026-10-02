@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Template — copy to dockerfiles/Pxx-slug/oracle/T01.sh and edit checks.
+set -euo pipefail
+
+: "${ORACLE_FP_FILE:?}"
+: "${ORACLE_OBSERVATION:?}"  # filesystem | screen | answer
+
+# export BENCH_ORACLE_LIB=/path/to/evaluation/scripts/oracle_lib.sh
+source "${BENCH_ORACLE_LIB:?set BENCH_ORACLE_LIB}"
+load_fingerprints
+
+case "$ORACLE_OBSERVATION" in
+  filesystem)
+    check_filesystem "$FP_FILE_NAME" "$FP_FILE_CONTENT"
+    ;;
+  screen)
+    check_screen "$FP_SCREEN"
+    ;;
+  answer)
+    check_answer "$FP_ANSWER"
+    ;;
+  *)
+    echo "unknown ORACLE_OBSERVATION=$ORACLE_OBSERVATION" >&2
+    exit 1
+    ;;
+esac
+
+oracle_msg "${ORACLE_TASK_ID} PASS"

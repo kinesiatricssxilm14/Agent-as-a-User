@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toolh"
+version = "1.0.0"
+description = "A keyboard-first terminal code snippet manager"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["textual>=0.55,<9"]
+license = {text = "MIT"}
+authors = [{name = "toolh contributors"}]
+keywords = ["tui", "snippets", "developer-tools", "textual"]
+classifiers = [
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development",
+]
+
+[project.scripts]
+toolh = "toolh.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

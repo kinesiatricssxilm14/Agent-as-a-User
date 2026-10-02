@@ -1,0 +1,10 @@
+[package]
+name = "tooli"
+version = "0.1.0"
+edition = "2021"
+description = "Disk space visualization TUI (treemap) tool"
+license = "MIT"
+
+[dependencies]
+ratatui = "0.29"
+crossterm = "0.28"

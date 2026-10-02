@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "projects": 15,
+  "tasks": 84,
+  "languages": [
+    "en"
+  ],
+  "generated_tui_families": [
+    "claude-code",
+    "codex",
+    "deepseek-harness"
+  ],
+  "contains_raw_participant_data": false,
+  "contains_credentials": false
+}

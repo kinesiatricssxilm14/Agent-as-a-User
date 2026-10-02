@@ -1,0 +1,59 @@
+{
+  "project_id": "P14",
+  "slug": "glazepkg",
+  "repo": "neur0map/glazepkg",
+  "lang": "go",
+  "description": "System and pip package browser TUI with search and uninstall",
+  "docker_image": "bench-tui-p14-glazepkg",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Open the app, switch to pip package list so only pip packages are visible; display all pip packages in the current environment, not apt packages.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Open the app, switch to apt package list so only apt packages are visible; display all apt packages in the current environment, not pip packages.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T03",
+      "description": "Open the app, view requests package details, showing at least full version number and all dependency names.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Open the app and install the scikit-learn package.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T05",
+      "description": "Open the app and uninstall the requests package.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "delete"
+    },
+    {
+      "id": "T06",
+      "description": "Open the app and uninstall the tree package.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "delete"
+    },
+    {
+      "id": "T07",
+      "description": "Open the app and upgrade the requests package.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "edit"
+    }
+  ]
+}

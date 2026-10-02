@@ -1,0 +1,52 @@
+{
+  "project_id": "P06",
+  "slug": "rura",
+  "repo": "tlipinski/rura",
+  "lang": "rust",
+  "description": "Interactive shell pipeline REPL with filter, statistics, and result saving",
+  "docker_image": "bench-tui-p06-rura",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "For /bench/server.log, run tail -n 5 to view the last 5 lines of server.log.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "For /bench/server.log, run grep '404' | tail -n 5 to filter log lines containing 404 and show the last 5 lines.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T03",
+      "description": "For /bench/server.log, run grep -c '404' to count 404 occurrences and display the count.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T04",
+      "description": "For /bench/server.log, run grep '404' | sort | uniq -c, move cursor to the space after sort, execute all commands through sort (not including commands after), cursor must not cover characters and no extra spaces between cursor and adjacent characters, and display the number of lines produced by that partial execution.",
+      "observation": "screen",
+      "difficulty": "hard",
+      "type": "navigate"
+    },
+    {
+      "id": "T05",
+      "description": "For /bench/server.log, run grep '404' | sort | uniq -c | grep 'DELETE' | sort, move cursor to the space after 'DELETE', execute all commands through uniq -c (not including commands after), cursor must not cover characters and no extra spaces, and display the number of lines produced by that partial execution.",
+      "observation": "screen",
+      "difficulty": "hard",
+      "type": "navigate"
+    },
+    {
+      "id": "T06",
+      "description": "For /bench/server.log, run tail -n 5 and save the complete result to /bench/data/result.txt.",
+      "observation": "filesystem",
+      "difficulty": "hard",
+      "type": "create"
+    }
+  ]
+}

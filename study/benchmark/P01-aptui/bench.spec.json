@@ -1,0 +1,38 @@
+{
+  "project_id": "P01",
+  "slug": "aptui",
+  "repo": "mexirica/aptui",
+  "lang": "go",
+  "description": "APT package management TUI with browse/search/install/remove/upgrade for system packages",
+  "docker_image": "bench-tui-p01-aptui",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Install the tree package on the system.",
+      "observation": "shell",
+      "difficulty": "medium",
+      "type": "create"
+    },
+    {
+      "id": "T02",
+      "description": "Find the installed curl package and uninstall it.",
+      "observation": "shell",
+      "difficulty": "medium",
+      "type": "delete"
+    },
+    {
+      "id": "T03",
+      "description": "Find the wget package, open its details page to view the description; must show complete dependency information, including at least the names of the packages it depends on.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Upgrade the hello package to the latest version.",
+      "observation": "shell",
+      "difficulty": "hard",
+      "type": "edit"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "project_id": "P01",
+  "slug": "aptui",
+  "repo": "mexirica/aptui",
+  "lang": "go",
+  "description": "APT English-only text TUI，English-only text/English-only text/English-only text/English-only text/English-only text",
+  "docker_image": "bench-tui-p01-aptui",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "English-only text tree English-only text；English-only text /bench/data English-only text，English-only text {{file_name}}，English-only text {{file_content}}",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "create"
+    },
+    {
+      "id": "T02",
+      "description": "English-only text curl；English-only text {{file_name}} / {{file_content}} English-only text",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "delete"
+    },
+    {
+      "id": "T03",
+      "description": "English-only text wget English-only text，English-only text wget English-only text {{screen}}",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "English-only text Upgradable English-only text，English-only text {{answer}}",
+      "observation": "answer",
+      "difficulty": "hard",
+      "type": "edit"
+    }
+  ]
+}

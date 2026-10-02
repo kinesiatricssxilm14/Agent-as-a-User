@@ -1,0 +1,21 @@
+[package]
+name = "toolk"
+version = "0.1.0"
+edition = "2024"
+description = "Interactive CSV analysis TUI powered by Polars"
+license = "MIT"
+
+[[bin]]
+name = "toolk"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0"
+crossterm = "0.28"
+ratatui = "0.29"
+polars = { version = "0.55.2", default-features = false, features = ["csv", "lazy", "sql", "fmt", "dtype-slim"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

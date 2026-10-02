@@ -1,0 +1,38 @@
+{
+  "project_id": "P02",
+  "slug": "flow",
+  "repo": "jsubroto/flow",
+  "lang": "rust",
+  "description": "Kanban board TUI with column management and card CRUD",
+  "docker_image": "bench-tui-p02-flow",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "In the IN PROGRESS column, find card FLOW-4 and open it to view its full content.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Switch to the TO DO column, create a new card with the first line title '# {{file_content}}'.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "create"
+    },
+    {
+      "id": "T03",
+      "description": "In the TO DO column, find FLOW-1 and change the title from Add counts to column headers to {{file_content}}, keeping the leading '#' symbol.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T04",
+      "description": "In the TO DO column, find FLOW-2 and append a new line {{file_content}} at the end of the content area.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "edit"
+    }
+  ]
+}

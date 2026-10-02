@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bench-oracle"
+version = "0.1.0"
+description = "Fingerprint-based oracle verification for TUI-Bench tasks"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+bench-oracle = "oracle.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["oracle*"]

@@ -1,0 +1,87 @@
+{
+  "project_id": "P11",
+  "slug": "datui",
+  "repo": "derekwisong/datui",
+  "lang": "rust",
+  "description": "CSV data browsing and aggregation TUI with grouping, fuzzy search, and help page",
+  "docker_image": "bench-tui-p11-datui",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Load /bench/data/employees.csv, use Fuzzy mode to search for EMP-5000, view the complete content of this entry.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Load /bench/data/employees.csv, use SQL-Like mode to run select where age > 62, display row count.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T03",
+      "description": "Load /bench/data/employees.csv, use SQL mode to run select * from df where age=65 and score > 90 and score < 92 and salary > 10000, display complete filtered content.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Load /bench/data/employees.csv, use Analysis Tools to view salary distribution; display p-value when distribution type is Uniform with three significant figures, Shapiro-Wilk test p-value with three significant figures, coefficient of variation (CV) and Kurtosis each with three significant figures.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T05",
+      "description": "Load /bench/data/employees.csv, use Analysis Tools to view Descriptive Statistics for score; display Mean, Std, Min, Max, 25th percentile, 50th percentile (median), 75th percentile, each with two decimal places.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T06",
+      "description": "Load /bench/data/employees.csv, use Analysis Tools to view correlation matrix for age, salary, score; display Pearson Correlation Coefficient between each pair of variables with two decimal places.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T07",
+      "description": "Load /bench/data/employees.csv, use Sort to sort all records by salary descending; display complete information for at least the top 5 people by salary.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T08",
+      "description": "Load /bench/data/employees.csv, use Sort to sort by age and score (age first, then score when age is equal), both descending; display complete information for at least the top 5 people with highest score among entries with the largest age.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T09",
+      "description": "Load /bench/data/employees.csv, use Filter to add conditions filtering records where score = 91.88 OR email contains 'oza@'; display complete information for matching records.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T10",
+      "description": "Load /bench/data/employees.csv, use Filter to add condition country = 'UK', then use Sort to sort those records by score ascending; display complete information for at least the top five.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T11",
+      "description": "Load /bench/data/employees.csv, use Filter to add condition full_name contains 'Henry', then use Sort to sort by score ascending, then export results to /bench/data/Henry.csv with CSV header, comma-separated.",
+      "observation": "filesystem",
+      "difficulty": "easy",
+      "type": "navigate"
+    }
+  ]
+}

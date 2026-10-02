@@ -1,0 +1,18 @@
+[package]
+name = "toolk"
+version = "0.1.0"
+edition = "2021"
+description = "CSV data analysis TUI"
+license = "MIT"
+
+[[bin]]
+name = "toolk"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.30"
+crossterm = "0.29"
+polars = { version = "0.55", default-features = false, features = ["lazy", "csv", "sql", "strings", "temporal", "dtype-full"] }
+
+[profile.release]
+opt-level = 2

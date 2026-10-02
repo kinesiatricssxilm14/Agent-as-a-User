@@ -1,0 +1,13 @@
+# Curated suite participant config
+output_dir: runs
+observation_mode: semantic
+rebuild: false
+
+human:
+  type_idle_ms: 1000
+  submit_key: ctrl+g ctrl+g ctrl+g
+  # operator_id: English-only text --operator <English-only text> English-only text（English-only text，English-only text）
+  web_host: 127.0.0.1
+  web_port: 8765
+  open_browser: false
+  task_pane_percent: -1   # -1=auto (default); 0=hide TUI full-screen; >0=max % cap

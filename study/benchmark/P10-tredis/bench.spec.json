@@ -1,0 +1,59 @@
+{
+  "project_id": "P10",
+  "slug": "tredis",
+  "repo": "huseyinbabal/tredis",
+  "lang": "rust",
+  "description": "Redis key browser TUI with servers/keys/streams/pubsub/clients/monitor/info/config/slowlog/acl",
+  "docker_image": "bench-tui-p10-tredis",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Create user New_user with URI redis://localhost:6379/0 and connect. Display total key count in the interface.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Create user New_user with URI redis://localhost:6379/0 and connect. For Redis keys, find the greeting key and display its full content.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T03",
+      "description": "Create user New_user with URI redis://localhost:6379/0 and connect. For Redis keys, find the hash-type key named user:1 and view its full content.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Create user New_user with URI redis://localhost:6379/0 and connect. For Redis keys, find the list-type key named tasks and view its full content.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T05",
+      "description": "Create user New_user with URI redis://localhost:6379/0 and connect. For Redis streams, display all stream names found.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T06",
+      "description": "Create user New_user with URI redis://localhost:6379/0 and connect. For Redis Pub/Sub Channels (pubsub), display all channel names.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T07",
+      "description": "Create user New_user with URI redis://localhost:6379/0 and connect. For Redis Access Control List (ACL), display all ACL usernames.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    }
+  ]
+}

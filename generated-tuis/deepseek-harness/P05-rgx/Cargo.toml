@@ -1,0 +1,16 @@
+[package]
+name = "toole"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Interactive regular expression testing TUI with real-time match highlighting, offsets, replacement preview, and presets."
+license = "MIT"
+
+[[bin]]
+name = "toole"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.28"
+crossterm = "0.28"
+regex = "1"

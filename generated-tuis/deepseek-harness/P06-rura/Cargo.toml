@@ -1,0 +1,19 @@
+[package]
+name = "toolf"
+version = "0.1.0"
+edition = "2021"
+description = "Interactive shell pipeline debugging TUI"
+license = "MIT"
+authors = ["toolf developers"]
+
+[[bin]]
+name = "toolf"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = { version = "0.30", default-features = false, features = ["crossterm"] }
+crossterm = "0.29"
+unicode-width = "0.2"
+
+[profile.release]
+strip = true

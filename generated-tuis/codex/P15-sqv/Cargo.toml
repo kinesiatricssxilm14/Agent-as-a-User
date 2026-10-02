@@ -1,0 +1,14 @@
+[package]
+name = "toolo"
+version = "0.1.0"
+edition = "2021"
+description = "A keyboard-first SQLite database browser TUI"
+license = "MIT"
+
+[dependencies]
+anyhow = "1.0"
+crossterm = "0.28"
+ratatui = "0.29"
+regex = "1.11"
+rusqlite = { version = "0.32", features = ["bundled"] }
+unicode-width = "0.2"

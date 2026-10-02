@@ -1,0 +1,38 @@
+{
+  "project_id": "P03",
+  "slug": "elio",
+  "repo": "elio-fm/elio",
+  "lang": "rust",
+  "description": "File manager TUI with browse, copy, move, delete, and rich preview",
+  "docker_image": "bench-tui-p03-elio",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "In the file list, find /bench/data/src/sample.txt and display the full file name and content.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Copy /bench/data/src/sample.txt to the /bench/data/dst directory.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "create"
+    },
+    {
+      "id": "T03",
+      "description": "Create a new folder named archive under /bench/data/src; it must be a folder, not a file.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "create"
+    },
+    {
+      "id": "T04",
+      "description": "Rename /bench/data/src/file1.txt to renamed.txt without changing the content.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "edit"
+    }
+  ]
+}

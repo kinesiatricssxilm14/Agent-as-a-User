@@ -1,0 +1,45 @@
+{
+  "project_id": "P05",
+  "slug": "rgx",
+  "repo": "brevity1swos/rgx",
+  "lang": "rust",
+  "description": "Interactive regex search TUI with case-toggle and workspace save",
+  "docker_image": "bench-tui-p05-rgx",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Read /bench/data/input.txt, match emails with regex .+@.+\\..+, show complete match results with highlighted background.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Read /bench/data/input.txt, match emails with regex .+@.+\\..+, show complete match results with offset numbers next to each match (start and end positions, 0-indexed).",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T03",
+      "description": "Read /bench/data/input.txt, match phone numbers with regex 1[3-9]\\d{9}, show complete match results with highlighted background.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Read /bench/data/input.txt, match case-insensitive user with regex (?i)user, show complete match results with offset numbers (start and end, 0-indexed).",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "create"
+    },
+    {
+      "id": "T05",
+      "description": "Read /bench/data/input.txt, match case-insensitive user with regex (?i)user, replace all matches with [USER], display the complete replaced content on screen.",
+      "observation": "screen",
+      "difficulty": "medium",
+      "type": "create"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "project_id": "P04",
+  "slug": "helius",
+  "repo": "Helius-Finance/helius-finance-tracker",
+  "lang": "rust",
+  "description": "Local-first personal finance TUI with income/expense entry, budget management, and cash flow forecasting",
+  "docker_image": "bench-tui-p04-helius",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Create Alice account (Accounts), type checking, initial balance 0. Create Category Food, type expense. Add an 85.14 expense transaction for Alice, category Food, payee Supermarket, note {{file_content}}, save. Open this transaction and display at least full Amount, Account, Category, Payee, and note.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "create"
+    },
+    {
+      "id": "T02",
+      "description": "Create Bob account (Accounts), initial 0, type checking. Create Salary category (Categories), type income. Add an 800.05 income transaction for Bob, date 2026-05-17, category Salary, note {{file_content}}, save. Open this transaction and display at least full Amount, Account, Category, date, and note.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "create"
+    },
+    {
+      "id": "T03",
+      "description": "Create Alice and Bob accounts (Accounts), both type checking, both initial 0. Create Food category (Categories), type expense. Create Salary category (Categories), type income. Add 85.14 expense for Alice, category Food, save. Add 800.05 income for Bob, category Salary, save. Switch to SUMMARY and display at least monthly income, monthly expense, and net income.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T04",
+      "description": "Create Checking account (Accounts), type checking, initial 0. Create Food category (Categories), type expense. Set monthly budget of 900.11 for Food (Budgets), account Checking. Add 85.14 expense for Checking, category Food, save; add 3.25 expense for Checking, category Food, save. Open BUDGETS and display all configured budgets with total budget, current spending, and remaining budget.",
+      "observation": "screen",
+      "difficulty": "hard",
+      "type": "edit"
+    }
+  ]
+}

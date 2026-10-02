@@ -1,0 +1,15 @@
+[package]
+name = "toold"
+version = "0.1.0"
+edition = "2021"
+description = "A local-first personal finance ledger TUI"
+license = "MIT"
+
+[dependencies]
+ratatui = "0.29"
+crossterm = "0.28"
+rusqlite = { version = "0.32", features = ["bundled"] }
+chrono = "0.4"
+
+[profile.release]
+opt-level = 2

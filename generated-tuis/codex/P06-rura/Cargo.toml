@@ -1,0 +1,18 @@
+[package]
+name = "toolf"
+version = "0.1.0"
+edition = "2021"
+description = "An interactive shell pipeline debugger for log files"
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+crossterm = "0.28"
+libc = "0.2"
+ratatui = "0.29"
+unicode-width = "0.2"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1

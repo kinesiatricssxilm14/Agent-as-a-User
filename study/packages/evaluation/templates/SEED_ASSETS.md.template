@@ -1,0 +1,21 @@
+# Seed Assets — P{ID} · {slug}
+
+> English-only text Docker English-only text。English-only text fixture English-only text `seed/`，English-only text `init.sh` English-only text。
+
+| Asset | Container path | Tasks | Origin | Notes |
+|-------|----------------|-------|--------|-------|
+| `seed/init.sh` | `/bench/init.sh` | all | generated-in-init | entrypoint English-only text |
+| `seed/example.bin` | `/bench/data/example.bin` | T01 | **English-only text** | English-only text |
+
+## Preparation（English-only text）
+
+### seed/example.bin
+
+1. English-only text …
+2. English-only text `seed/example.bin`
+3. `init.sh` English-only text：`cp /bench/example.bin /bench/data/`
+
+## init.sh English-only text
+
+- English-only text：English-only text、English-only text seed English-only text、English-only text sidecar（postgres/redis）
+- English-only text：curl English-only text、English-only text（English-only text oracle English-only text，English-only text seed）

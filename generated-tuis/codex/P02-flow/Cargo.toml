@@ -1,0 +1,20 @@
+[package]
+name = "toolb"
+version = "0.1.0"
+edition = "2021"
+description = "A keyboard-driven filesystem-backed Kanban board TUI"
+license = "MIT"
+
+[[bin]]
+name = "toolb"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive", "env"] }
+crossterm = "0.28"
+ratatui = "0.28"
+unicode-width = "0.1"
+
+[dev-dependencies]
+tempfile = "3.12"

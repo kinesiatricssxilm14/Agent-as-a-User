@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keyboard-agent"
+version = "0.2.0"
+description = "LLM keyboard agent for TUI-Bench — Observe-Act loop over bench.sh tasks"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+llm = ["openai>=1.30"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+keyboard-agent = "keyboard_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

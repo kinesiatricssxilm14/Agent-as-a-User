@@ -1,0 +1,14 @@
+[package]
+name = "toolj"
+version = "0.1.0"
+edition = "2021"
+description = "Redis database management TUI"
+license = "MIT"
+
+[dependencies]
+ratatui = "0.28"
+crossterm = "0.28"
+redis = { version = "0.25", default-features = false }
+
+[profile.release]
+strip = true

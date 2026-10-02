@@ -1,0 +1,22 @@
+# Verification image: mirrors the benchmark runtime (Debian 12 slim, root, /bench data).
+#
+# Build from the `toolf/` source directory:
+#   docker build -f verify/Dockerfile.verify -t toolf-verify .
+#
+# Then run the scripted workflow check inside it:
+#   docker run --rm -v "$PWD:/host:ro" toolf-verify bash /host/verify/in_container.sh
+#
+# This exists to prove `cargo install --path .` works in the target environment.
+FROM rust:1-slim-bookworm AS build
+WORKDIR /src
+COPY Cargo.toml Cargo.lock ./
+COPY src ./src
+RUN cargo install --path . --root /usr/local
+
+FROM debian:12-slim
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates libssl3 bash procps coreutils gawk sed grep \
+    && rm -rf /var/lib/apt/lists/*
+COPY --from=build /usr/local/bin/toolf /usr/local/bin/toolf
+RUN mkdir -p /bench/data
+CMD ["bash"]

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toolh"
+version = "1.0.0"
+description = "toolh - a keyboard-driven TUI for organizing, searching and reusing code snippets"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "toolh contributors" }]
+keywords = ["tui", "snippets", "textual", "sqlite", "clipboard", "developer-tools"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development",
+    "Topic :: Text Editors :: Text Processing",
+]
+
+dependencies = [
+    "textual>=0.60",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+clipboard = ["pyperclip>=1.8"]
+test = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+
+[project.scripts]
+toolh = "toolh.cli:main"
+
+[project.urls]
+Homepage = "https://example.invalid/toolh"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+toolh = ["*.tcss"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

@@ -1,0 +1,45 @@
+{
+  "project_id": "P07",
+  "slug": "ec",
+  "repo": "chojs23/ec",
+  "lang": "go",
+  "description": "Three-way Git merge conflict resolution TUI",
+  "docker_image": "bench-tui-p07-ec",
+  "tasks": [
+    {
+      "id": "T01",
+      "description": "Launch the app, confirm in the three-way merge view that main version and feature version conflict content is visible, with background highlighting showing ours and theirs conflict lines.",
+      "observation": "screen",
+      "difficulty": "easy",
+      "type": "navigate"
+    },
+    {
+      "id": "T02",
+      "description": "Launch the app, resolve /bench/data/repo/conflict.py using theirs (feature) branch content, save the resolved file.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T03",
+      "description": "Launch the app, resolve /bench/data/repo/conflict.py using ours (head) branch content, save the resolved file.",
+      "observation": "filesystem",
+      "difficulty": "medium",
+      "type": "edit"
+    },
+    {
+      "id": "T04",
+      "description": "Launch the app, resolve /bench/data/repo/conflict.py by keeping both ours (head) and theirs (feature) content, save the resolved file.",
+      "observation": "filesystem",
+      "difficulty": "easy",
+      "type": "edit"
+    },
+    {
+      "id": "T05",
+      "description": "Launch the app, resolve /bench/data/repo/conflict.py by discarding conflict blocks from both branches (keep neither side's conflicting changes), save the resolved file.",
+      "observation": "filesystem",
+      "difficulty": "easy",
+      "type": "edit"
+    }
+  ]
+}

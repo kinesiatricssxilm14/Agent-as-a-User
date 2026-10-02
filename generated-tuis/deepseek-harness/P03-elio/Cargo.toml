@@ -1,0 +1,13 @@
+[package]
+name = "toolc"
+version = "0.1.0"
+edition = "2021"
+description = "Dual-pane file manager TUI for Linux administration"
+license = "MIT"
+
+[dependencies]
+ratatui = "0.28.1"
+crossterm = "0.28.1"
+
+[profile.release]
+strip = true

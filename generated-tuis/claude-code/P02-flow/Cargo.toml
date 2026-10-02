@@ -1,0 +1,31 @@
+[package]
+name = "toolb"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Keyboard-driven kanban board TUI over a plain-text board directory"
+license = "MIT"
+readme = "README.md"
+
+[lib]
+name = "toolb"
+path = "src/lib.rs"
+
+[[bin]]
+name = "toolb"
+path = "src/main.rs"
+
+[dependencies]
+# ratatui 0.29 re-exports crossterm 0.28.1 at `ratatui::crossterm`; we always import
+# crossterm through ratatui so a version split is structurally impossible.
+ratatui = "0.29"
+unicode-width = "0.2"
+unicode-segmentation = "1"
+
+[dev-dependencies]
+tempfile = "3"
+# Used by the render tests to reason about double-width cells in the test backend.
+unicode-width = "0.2"
+
+[profile.release]
+opt-level = 2
