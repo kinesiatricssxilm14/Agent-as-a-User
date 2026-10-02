@@ -45,7 +45,9 @@ for path in ROOT.rglob("*"):
     if not path.is_file() or path.name == "check_artifact.py":
         continue
     relative = path.relative_to(ROOT)
-    if any(part in {".git", "runs", "__pycache__"} for part in relative.parts):
+    if ".git" in relative.parts:
+        continue
+    if any(part in {"runs", "__pycache__"} for part in relative.parts):
         errors.append(f"generated/private path is present: {relative}")
         continue
     if path.suffix.lower() not in TEXT_SUFFIXES and path.name not in {
